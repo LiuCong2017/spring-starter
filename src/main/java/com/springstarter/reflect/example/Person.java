@@ -23,7 +23,7 @@ public class Person {
         return str;
     }
 
-    public String PersonPrivateMethod(String str){
+    private String PersonPrivateMethod(String str){
         return str;
     }
 
