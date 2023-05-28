@@ -1,9 +1,7 @@
-package com.springstarter.reflect.example;
+package com.springstarter.reflect.clazz;
 
 import com.springstarter.annotation.CustomDescription;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @CustomDescription(description = "基类")
 @CustomDescription(description = "人")

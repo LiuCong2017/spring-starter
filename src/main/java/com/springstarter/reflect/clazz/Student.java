@@ -1,4 +1,4 @@
-package com.springstarter.reflect.example;
+package com.springstarter.reflect.clazz;
 
 import com.springstarter.annotation.CustomDescription;
 import lombok.Data;
