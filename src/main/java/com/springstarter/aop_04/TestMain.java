@@ -1,7 +1,7 @@
-package com.springstarter.aop;
+package com.springstarter.aop_04;
 
-import com.springstarter.aop.service.IService;
-import com.springstarter.aop.service.ServiceImplA;
+import com.springstarter.aop_04.service.IService;
+import com.springstarter.aop_04.service.ServiceImplA;
 
 public class TestMain {
 

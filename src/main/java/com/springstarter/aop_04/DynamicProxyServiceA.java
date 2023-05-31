@@ -1,4 +1,4 @@
-package com.springstarter.aop;
+package com.springstarter.aop_04;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

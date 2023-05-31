@@ -1,6 +1,6 @@
-package com.springstarter.reflect.clazz;
+package com.springstarter.reflect_02.clazz;
 
-import com.springstarter.annotation.CustomDescription;
+import com.springstarter.annotation_01.CustomDescription;
 import lombok.Data;
 
 @CustomDescription(description = "学生")

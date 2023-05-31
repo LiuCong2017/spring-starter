@@ -1,6 +1,6 @@
-package com.springstarter.aop;
+package com.springstarter.aop_04;
 
-import com.springstarter.aop.service.IService;
+import com.springstarter.aop_04.service.IService;
 
 public class StaticProxyServiceA implements IService {
     private IService service;

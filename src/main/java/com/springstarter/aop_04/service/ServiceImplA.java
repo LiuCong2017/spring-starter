@@ -1,4 +1,4 @@
-package com.springstarter.aop.service;
+package com.springstarter.aop_04.service;
 
 public class ServiceImplA implements IService{
 

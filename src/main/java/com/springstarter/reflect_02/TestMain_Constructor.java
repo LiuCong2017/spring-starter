@@ -1,7 +1,7 @@
-package com.springstarter.reflect;
+package com.springstarter.reflect_02;
 
-import com.springstarter.reflect.clazz.Person;
-import com.springstarter.reflect.clazz.Student;
+import com.springstarter.reflect_02.clazz.Person;
+import com.springstarter.reflect_02.clazz.Student;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 public class TestMain_Constructor {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        String className = "com.springstarter.reflect.clazz.Student";
+        String className = "com.springstarter.reflect_02.clazz.Student";
         Class<Student> clazz = (Class<Student>) Class.forName(className);
 
         /** 获取对应类中public类型的构造函数，且只获取当前类的构造函数 */

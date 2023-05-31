@@ -1,4 +1,4 @@
-package com.springstarter.reflect;
+package com.springstarter.reflect_02;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -18,7 +18,7 @@ public class TestMain_Method {
 //        System.out.println(clazz);
 
 
-        Class clazz = Class.forName("com.springstarter.reflect.clazz.Student");
+        Class clazz = Class.forName("com.springstarter.reflect_02.clazz.Student");
         Method method = null;
         Method[] methods = null;
 

@@ -1,9 +1,10 @@
-package com.springstarter.ioc;
+package com.springstarter.ioc_03;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+//基于注解配置Bean
 @Component
 public class Person {
 

@@ -1,7 +1,7 @@
-package com.springstarter.annotation.example;
+package com.springstarter.annotation_01.example;
 
-import com.springstarter.annotation.CustomDescription;
-import com.springstarter.annotation.CustomDescriptions;
+import com.springstarter.annotation_01.CustomDescription;
+import com.springstarter.annotation_01.CustomDescriptions;
 
 public class TestMain {
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    开启context扫描-->
+    <context:component-scan base-package="com.springstarter"/>
+
+    <bean id="CleanAir" class="com.springstarter.ioc_03.CleanAir">
+        <qualifier value="cleanair"/>
+    </bean>
+    <bean id="DirtyAir" class="com.springstarter.ioc_03.DirtyAir">
+        <qualifier value="dirtyair"/>
+    </bean>
+    <bean id="person" class="com.springstarter.ioc_03.Person"/>
+
+    <!--    基于XML配置Bean-->
+    <bean id="user" class="com.springstarter.ioc_container_05.UserBean"/>
+
+<!--    基于Java类配置Bean-->
+    <bean id="conf" class="com.springstarter.ioc_container_05.AppConf"/>
+</beans>

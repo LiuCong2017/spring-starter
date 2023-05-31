@@ -1,4 +1,4 @@
-package com.springstarter.annotation;
+package com.springstarter.annotation_01;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Inherited;

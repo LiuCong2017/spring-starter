@@ -1,6 +1,6 @@
-package com.springstarter.annotation.example;
+package com.springstarter.annotation_01.example;
 
-import com.springstarter.annotation.CustomDescription;
+import com.springstarter.annotation_01.CustomDescription;
 import lombok.Data;
 
 @CustomDescription(description = "基类")

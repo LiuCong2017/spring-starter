@@ -1,4 +1,4 @@
-package com.springstarter.ioc;
+package com.springstarter.ioc_03;
 
 public class DirtyAir implements IAir{
 
