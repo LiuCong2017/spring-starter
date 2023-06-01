@@ -1,4 +1,4 @@
-package com.springstarter.ioc_container_05;
+package com.springstarter.ioc_container_05.bean_config;
 
 import com.springstarter.ioc_03.CleanAir;
 import com.springstarter.ioc_03.DirtyAir;

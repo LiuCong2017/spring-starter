@@ -1,4 +1,4 @@
-package com.springstarter.ioc_container_05;
+package com.springstarter.ioc_container_05.bean_config;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

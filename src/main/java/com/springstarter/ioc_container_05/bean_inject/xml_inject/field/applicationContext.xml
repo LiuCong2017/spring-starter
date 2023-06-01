@@ -10,14 +10,9 @@
     <bean id="CleanAir" class="com.springstarter.ioc_03.CleanAir">
         <qualifier value="cleanair"/>
     </bean>
-    <bean id="DirtyAir" class="com.springstarter.ioc_03.DirtyAir">
-        <qualifier value="dirtyair"/>
+
+    <bean id="xmlinstance" class="com.springstarter.ioc_container_05.bean_inject.xml_inject.field.XMLInstance">
+        <property name="air" ref="CleanAir"></property>
+        <property name="name" value="Kavin"></property>
     </bean>
-    <bean id="person" class="com.springstarter.ioc_03.Person"/>
-
-    <!--    基于XML配置Bean-->
-    <bean id="user" class="com.springstarter.ioc_container_05.bean_config.UserBean"/>
-
-<!--    基于Java类配置Bean-->
-    <bean id="conf" class="com.springstarter.ioc_container_05.bean_config.AppConf"/>
 </beans>
