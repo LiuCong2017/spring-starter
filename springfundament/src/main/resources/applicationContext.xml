@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--    开启注解以使用@Autowired、@Resources等注解可以起作用-->
     <context:annotation-config/>
@@ -108,6 +109,52 @@
 
     <!--  ****** ioc_container end ******  -->
 
+    <!--  ****** d04_spring_aop ******  -->
+    <!--  ^^^^^^^^^^^ proxy_01 ^^^^^^^^^^^^^^  -->
+    <bean id="aopInterceptor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice">
+            <bean class="com.springstarter.d04_spring_aop.proxy_01.AOPInterceptor"/>
+        </property>
+        <property name="mappedName" value="withAopMethod"/>
+    </bean>
+
+    <bean id="aopService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="interceptorNames">
+            <list>
+                <value>aopInterceptor</value>
+            </list>
+        </property>
+        <property name="target">
+            <bean class="com.springstarter.d04_spring_aop.proxy_01.AOPServicesImpl">
+                <property name="description" value="basicAop"/>
+            </bean>
+        </property>
+    </bean>
+    <!--  ^^^^^ end ^^^^^^^  -->
+
+    <!--  ^^^^^^^^^^^ aspectj_xml_config_02 ^^^^^^^^^^^^^^  -->
+    <bean id="serviceImplA" class="com.springstarter.d04_spring_aop.proxy_01.AOPServicesImpl">
+        <property name="description" value="basicAop"/>
+    </bean>
+    <bean id="serviceAspectBean" class="com.springstarter.d04_spring_aop.aspectj_xml_config_02.XMLAdvice"/>
+    <aop:config>
+        <aop:aspect id="serviceAspect" ref="serviceAspectBean">
+            <aop:pointcut id="servicePointcut" expression="execution(* com.springstarter.d04_spring_aop.proxy_01.AOPServicesImpl.*(..))"/>
+            <aop:before pointcut-ref="servicePointcut" method="beforeAdvice"/>
+            <aop:after pointcut-ref="servicePointcut" method="afterAdvice"/>
+            <aop:after-returning pointcut-ref="servicePointcut" method="afterReturnAdvice" returning="result"/>
+            <aop:around pointcut-ref="servicePointcut" method="aroundAdvice"/>
+            <aop:after-throwing pointcut-ref="servicePointcut" method="throwingAdvice" throwing="e"/>
+        </aop:aspect>
+    </aop:config>
+    <!--  ^^^^^ end ^^^^^^^  -->
+
+    <!--  ^^^^^^^^^^^ aspect_annotation_config_03 ^^^^^^^^^^^^^^  -->
+    <!-- 自动为切面方法中匹配的方法所在的类生成代理对象 -->
+    <aop:aspectj-autoproxy/>
+    <!--  ^^^^^ end ^^^^^^^  -->
+
+    <!--  ****** d04_spring_aop end ******  -->
 
 
 </beans>

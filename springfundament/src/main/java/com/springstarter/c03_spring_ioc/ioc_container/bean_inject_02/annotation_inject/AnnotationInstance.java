@@ -1,6 +1,8 @@
 package com.springstarter.c03_spring_ioc.ioc_container.bean_inject_02.annotation_inject;
 
+import com.springstarter.b02_spring_fundament.ioc_01.CleanAir;
 import com.springstarter.b02_spring_fundament.ioc_01.IAir;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,10 +23,10 @@ public class AnnotationInstance {
     @Qualifier(value = "cleanair")
     private IAir air;
 
-//    @Resource(name = "cleanair")
-//    public void setAir(IAir air){
-//        this.air = air;
-//    }
+//    @Resource(name = "cleanair",type = CleanAir.class)
+    public void setAir(IAir air){
+        this.air = air;
+    }
 
     public void Breath(){
         System.out.println("Name: "+this.name+" Air: "+this.air.toString());
