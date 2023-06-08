@@ -156,5 +156,50 @@
 
     <!--  ****** d04_spring_aop end ******  -->
 
+    <!--  ************************ com.springstarter.e05_spring_dao start **********************************************************  -->
+
+    <!--  ^^^^^ com.springstarter.e05_spring_dao.spring_dao_02.JdbcDaoSupport ^^^^^^^  -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName">
+            <value>com.mysql.cj.jdbc.Driver</value>
+        </property>
+        <property name="url">
+            <value>jdbc:mysql://127.0.0.1:3306/daodemodb</value>
+        </property>
+        <property name="username">
+            <value>root</value>
+        </property>
+        <property name="password">
+            <value>root</value>
+        </property>
+    </bean>
+    <bean id="userDao" class="com.springstarter.e05_spring_dao.spring_dao_02.JdbcDaoSupport.SpringDAODemo" depends-on="dataSource">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--  ^^^^^ com.springstarter.e05_spring_dao.spring_dao_02.sqlupdate.UserSqlUpdate ^^^^^^^  -->
+    <bean id="userSqlUpdate" class="com.springstarter.e05_spring_dao.spring_dao_02.sqlupdate.UserSqlUpdate">
+        <constructor-arg ref="dataSource" index="0"/>
+    </bean>
+    <!--  ^^^^^ end ^^^^^^^  -->
+
+    <!--    配置事务管理对象-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--    配置业务层代理-->
+    <bean id="userDaoProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+    <!--        配置目标对象-->
+        <property name="target" ref="userDao"/>
+    <!--        注入事务管理器-->
+        <property name="transactionManager" ref="transactionManager"/>
+    <!--        注入事务的属性-->
+        <property name="transactionAttributes">
+            <props>
+                <prop key="transfer">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <!--  ************************ com.springstarter.e05_spring_dao end **********************************************  -->
+
 
 </beans>
