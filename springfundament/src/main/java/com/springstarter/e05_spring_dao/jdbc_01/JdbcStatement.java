@@ -10,6 +10,8 @@ public class JdbcStatement {
         ResultSet rs = null;
 
         try {
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            //or
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/daodemodb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false","root","root");
             stmt = connection.createStatement();
