@@ -1,6 +1,7 @@
 package com.springstarter.e05_spring_dao.spring_dao_02.JdbcDaoSupport;
 
 import com.springstarter.e05_spring_dao.spring_dao_02.mappingsqlquery.UserMappingSqlQuery;
+import com.springstarter.f06_mybatis.typehandlers.UserState;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.SqlParameter;
@@ -18,7 +19,8 @@ public class SpringDAODemo extends JdbcDaoSupport implements IUserDAO{
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         IUserDAO userDao = (IUserDAO) context.getBean("userDao");
 
-        User user = new User(null,"JdbcDaoSupport",29,983.32);
+        User user = new User(null,"JdbcDaoSupport",29,983.32, UserState.AVAILABLE);
+//        User user = new User(null,"JdbcDaoSupport",29,983.32, UserState.AVAILABLE.getStatus());
         userDao.addUser(user);
 
         List<User> list = userDao.queryAllUser();

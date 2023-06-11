@@ -1,5 +1,6 @@
 package com.springstarter.e05_spring_dao.spring_dao_02.JdbcDaoSupport;
 
+import com.springstarter.f06_mybatis.typehandlers.UserState;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,5 +15,5 @@ public class User {
     private String name;
     private Integer age;
     private Double money;
-
+    private UserState status;
 }
